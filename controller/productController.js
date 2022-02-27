@@ -14,6 +14,14 @@ const productController = {
             res.status(500).json(error);
         }
     },
+    getAProduct: async (req, res) => {
+        try {
+            const product = await Product.findById(req.params.id).populate("subCategory");
+            res.status(200).json(product);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
     getAllProduct: async (req, res) => {
         try {
             const products = await Product.find();
@@ -21,7 +29,16 @@ const productController = {
         } catch (error) {
             res.status(500).json(error);
         }
-    }
+    },
+    updateAProduct: async (req, res) => {
+        try {
+            const product = await Product.findById(req.params.id);
+            await Product.updateOne({ $set: req.body });
+            res.status(200).json("update successfully");
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
 }
 
 module.exports = productController;

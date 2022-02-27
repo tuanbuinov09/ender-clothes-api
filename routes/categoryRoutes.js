@@ -5,5 +5,8 @@ const router = require("express").Router();
 
 router.post("/", categoryController.addCategory);
 router.get("/", categoryController.getAllCategories);
+router.get("/:id", categoryController.getACategory);
+router.put("/:id", categoryController.updateACategory);
+
 
 module.exports = router;
