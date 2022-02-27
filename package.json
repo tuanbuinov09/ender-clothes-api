@@ -1,7 +1,6 @@
 {
   "name": "clothes-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -15,5 +14,15 @@
     "express": "^4.17.3",
     "mongoose": "^6.2.3",
     "morgan": "^1.10.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanbuinov09/ender-clothes-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tuanbuinov09/ender-clothes-api/issues"
+  },
+  "homepage": "https://github.com/tuanbuinov09/ender-clothes-api#readme",
+  "description": ""
 }
