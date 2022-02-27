@@ -23,6 +23,8 @@ const subCategoryController = {
             res.status(500).json(error);
         }
     }
+    //qywriuq3rhwqthhewqbrjhwqt]
+    //qiuwtihqwtouqtoqhtohqto
 }
 
 module.exports = subCategoryController;
