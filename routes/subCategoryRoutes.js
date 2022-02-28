@@ -7,5 +7,6 @@ router.post("/", subCategoryController.addSubCategory);
 router.get("/", subCategoryController.getAllSubCategories);
 router.get("/:id", subCategoryController.getASubCategory);
 router.put("/:id", subCategoryController.updateASubCategory);
+router.delete("/:id", subCategoryController.deleteASubCategory);
 
 module.exports = router;
