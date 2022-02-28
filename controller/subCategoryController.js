@@ -35,8 +35,22 @@ const subCategoryController = {
     updateASubCategory: async (req, res) => {
         try {
             const subCategory = await SubCategory.findById(req.params.id);
-            await SubCategory.updateOne({ $set: req.body });
+            await subCategory.updateOne({ $set: req.body });
             res.status(200).json("update successfully");
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+    deleteASubCategory: async (req, res) => {
+        try {
+            await Category.updateMany(
+                { subCategories: req.params.id },
+                { $pull: { subCategories: req.params.id } });
+            await Product.updateMany(
+                { subCategory: req.params.id },
+                { subCategory: null });
+            await SubCategory.findByIdAndDelete(req.params.id);
+            res.status(200).json("delete successfully");
         } catch (error) {
             res.status(500).json(error);
         }

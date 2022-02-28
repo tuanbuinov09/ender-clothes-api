@@ -29,8 +29,19 @@ const categoryController = {
     updateACategory: async (req, res) => {
         try {
             const category = await Category.findById(req.params.id);
-            await Category.updateOne({ $set: req.body });
+            await category.updateOne({ $set: req.body });
             res.status(200).json("update successfully");
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+    deleteACategory: async (req, res) => {
+        try {
+            await SubCategory.updateMany(
+                { category: req.params.id },
+                { category: null });
+            await Category.findByIdAndDelete(req.params.id);
+            res.status(200).json("delete successfully");
         } catch (error) {
             res.status(500).json(error);
         }
